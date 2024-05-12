@@ -15,7 +15,7 @@ function Home() {
             flexDirection: "column",
             alignContent: "center",
             width: 200,
-            marginLeft: 50
+            marginLeft: 70
         }}>
             <h1 style={{
                 fontSize: "4rem",
