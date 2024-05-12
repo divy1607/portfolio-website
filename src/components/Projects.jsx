@@ -64,7 +64,7 @@ function Projects() {
                 textAlign: "center",
                 fontFamily: "Copperplate, Copperplate Gothic Light, fantasy"
             }}>
-                PROJECTS
+                MY PROJECTS
             </h1>
             <div style={{
                 display: "flex",
