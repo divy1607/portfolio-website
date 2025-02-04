@@ -27,7 +27,7 @@ function App() {
     <div style={{
       width: "100vw",
       height: "100vh",
-     
+
     }}
     >
       <div style={{
@@ -59,7 +59,7 @@ function App() {
               <h1 style={{
                 textAlign: "center",
                 fontFamily: "Copperplate, Copperplate Gothic Light, fantasy"
-                }}>
+              }}>
                 THE WAY I AM
               </h1>
             </Grid>
