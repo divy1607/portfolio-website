@@ -22,7 +22,7 @@ function Home() {
                 fontFamily: "Georgia, serif",
                 fontWeight: "bold",
                 textAlign: "center"
-            }}>Hi, I'm <span style={{ color: "#e5b59e", marginLeft: 20 }}> Divyansh </span></h1>
+            }}>Hi, I'm <span style={{ color: "#e5b59e" }}> Divyansh </span></h1>
             <h1 style={{
                 fontFamily: "Monaco, monospace",
                 color: "00ffee",
