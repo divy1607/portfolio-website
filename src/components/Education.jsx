@@ -4,11 +4,7 @@ import 'react-vertical-timeline-component/style.min.css';
 function Education() {
     return (
         <>
-            <h1 style={{
-                textAlign: "center",
-                fontSize: "3em",
-                fontFamily: "Copperplate, Copperplate Gothic Light, fantasy"
-            }}>EDUCATION</h1>
+            
             <VerticalTimeline>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"

@@ -16,252 +16,246 @@ import calcPic from "../assets/calculator.jpeg";
 
 function Projects() {
     const [isHovered, setIsHovered] = useState(false);
-    const handleMouseEnter = (e) => {
-        setIsHovered(true);
-    };
-
-    const handleMouseLeave = (e) => {
-        setIsHovered(false);
-    };
-
     const [issHovered, setIssHovered] = useState(false);
-    const handdleMouseEnter = (e) => {
-        setIssHovered(true);
-    };
-
-    const handdleMouseLeave = (e) => {
-        setIssHovered(false);
-    };
-
     const [isssHovered, setIsssHovered] = useState(false);
-    const handddleMouseEnter = (e) => {
-        setIsssHovered(true);
-    };
-
-    const handddleMouseLeave = (e) => {
-        setIsssHovered(false);
-    };
-
     const [issssHovered, setIssssHovered] = useState(false);
-    const handdddleMouseEnter = (e) => {
-        setIssssHovered(true);
-    };
 
-    const handdddleMouseLeave = (e) => {
-        setIssssHovered(false);
-    };
+    const handleMouseEnter = (e) => setIsHovered(true);
+    const handleMouseLeave = (e) => setIsHovered(false);
+    const handdleMouseEnter = (e) => setIssHovered(true);
+    const handdleMouseLeave = (e) => setIssHovered(false);
+    const handddleMouseEnter = (e) => setIsssHovered(true);
+    const handddleMouseLeave = (e) => setIsssHovered(false);
+    const handdddleMouseEnter = (e) => setIssssHovered(true);
+    const handdddleMouseLeave = (e) => setIssssHovered(false);
 
     return (
         <div style={{
-            justifyContent: "center",
-            alignItems: "baseline",
-            flexDirection: "row",
-            alignContent: "center",
+            padding: '20px',
+            maxWidth: '1200px',
+            margin: '0 auto',
+            width: '100%',
+            boxSizing: 'border-box'
         }}>
-
             <h1 style={{
-                fontSize: "3em",
-                textAlign: "center",
-                fontFamily: "Copperplate, Copperplate Gothic Light, fantasy"
+                fontSize: 'clamp(2em, 5vw, 3em)',
+                textAlign: 'center',
+                fontFamily: 'Copperplate, Copperplate Gothic Light, fantasy',
+                marginBottom: '2rem'
             }}>
                 MY PROJECTS
             </h1>
+
             <div style={{
-                display: "flex",
-                justifyContent: "space-around",
-                marginTop: 30
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: '2rem',
+                marginTop: '1rem'
             }}>
                 <div style={{
-                    
-                    justifyContent: "center",
-                    alignItems: "center",
-                    flexDirection: "column",
-                    alignContent: "center",
-                    marginRight: "163px"
+                    flex: '1 1 300px',
+                    maxWidth: '500px',
+                    minWidth: '280px'
                 }}>
                     <Card
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                         style={{
-                            width: 500, height: 375, marginBottom: 40, backgroundColor: "#FFE4C4"
+                            width: '100%',
+                            height: 'auto',
+                            marginBottom: '2rem',
+                            backgroundColor: '#FFE4C4'
                         }}>
                         <h1 style={{
-                            textAlign: "center",
-                            fontFamily: "Trebuchet MS, sans-serif"
+                            textAlign: 'center',
+                            fontFamily: 'Trebuchet MS, sans-serif',
+                            fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
+                            padding: '1rem 0'
                         }}>Todo Application</h1>
-                        {
-                            !isHovered ? (
-                                <img src={todoPic} alt="" style={{ width: 500, height: "auto" }} />
-                            ) : (
-                                <CardMedia
-                                    component="video"
-                                    autoPlay={isHovered}
-                                    loop
-                                    muted
-                                    src={todoVid}
-                                    controls={isHovered}
-                                    style={{ display: isHovered ? 'block' : 'none' }}
-                                />
-                            )
-                        }
-                        <a href="https://github.com/divy1607/react-todo-app" target="_blank"> <h3 style={{ textAlign: "center", fontFamily: "Monaco, monospace" }}>source code</h3></a>
+                        {!isHovered ? (
+                            <img src={todoPic} alt="Todo App" style={{ width: '100%', height: 'auto' }} />
+                        ) : (
+                            <CardMedia
+                                component="video"
+                                autoPlay={isHovered}
+                                loop
+                                muted
+                                src={todoVid}
+                                controls={isHovered}
+                                style={{ display: isHovered ? 'block' : 'none', width: '100%' }}
+                            />
+                        )}
+                        <a href="https://github.com/divy1607/react-todo-app" target="_blank">
+                            <h3 style={{ 
+                                textAlign: 'center', 
+                                fontFamily: 'Monaco, monospace',
+                                padding: '1rem',
+                                fontSize: 'clamp(0.9rem, 2vw, 1rem)'
+                            }}>source code</h3>
+                        </a>
                     </Card>
+
                     <Card
                         onMouseEnter={handdleMouseEnter}
                         onMouseLeave={handdleMouseLeave}
                         style={{
-                            width: 500, height: 375, marginBottom: 20, backgroundColor: "#FFE4C4"
+                            width: '100%',
+                            height: 'auto',
+                            marginBottom: '2rem',
+                            backgroundColor: '#FFE4C4'
                         }}>
                         <h1 style={{
-                            textAlign: "center",
-                            fontFamily: "Trebuchet MS, sans-serif"
+                            textAlign: 'center',
+                            fontFamily: 'Trebuchet MS, sans-serif',
+                            fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
+                            padding: '1rem 0'
                         }}>E Commerce Dashboard *</h1>
-                        <img src={ecomPic} alt="" style={{ width: 500, height: "auto" }} />
-                        <a href="https://github.com/divy1607/next" target="_blank"> <h3 style={{ textAlign: "center", fontFamily: "Monaco, monospace" }}>source code</h3></a>
+                        <img src={ecomPic} alt="E-commerce" style={{ width: '100%', height: 'auto' }} />
+                        <a href="https://github.com/divy1607/next" target="_blank">
+                            <h3 style={{ 
+                                textAlign: 'center', 
+                                fontFamily: 'Monaco, monospace',
+                                padding: '1rem',
+                                fontSize: 'clamp(0.9rem, 2vw, 1rem)'
+                            }}>source code</h3>
+                        </a>
                     </Card>
                 </div>
+
                 <div style={{
-                    
-                    justifyContent: "center",
-                    alignItems: "center",
-                    flexDirection: "column",
-                    alignContent: "center",
-                    marginLeft: "163px"
+                    flex: '1 1 300px',
+                    maxWidth: '500px',
+                    minWidth: '280px'
                 }}>
                     <Card
                         onMouseEnter={handddleMouseEnter}
                         onMouseLeave={handddleMouseLeave}
                         style={{
-                            width: 500, height: 375, marginBottom: 40, backgroundColor: "#FFE4C4"
+                            width: '100%',
+                            height: 'auto',
+                            marginBottom: '2rem',
+                            backgroundColor: '#FFE4C4'
                         }}>
                         <h1 style={{
-                            textAlign: "center",
-                            fontFamily: "Trebuchet MS, sans-serif"
+                            textAlign: 'center',
+                            fontFamily: 'Trebuchet MS, sans-serif',
+                            fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
+                            padding: '1rem 0'
                         }}>Course Selling Application</h1>
-                        {
-                            !isssHovered ? (
-                                <img src={coursePic} alt="" style={{ width: 500, height: "auto" }} />
-                            ) : (
-                                <CardMedia
-                                    component="video"
-                                    autoPlay={isssHovered}
-                                    loop
-                                    muted
-                                    src={courseVid}
-                                    controls={isssHovered}
-                                    style={{ display: isssHovered ? 'block' : 'none' }}
-                                />
-                            )
-                        }
-                        <a href="https://github.com/divy1607/react-course-app" target="_blank"> <h3 style={{ textAlign: "center", fontFamily: "Monaco, monospace" }}>source code</h3></a>
+                        {!isssHovered ? (
+                            <img src={coursePic} alt="Course App" style={{ width: '100%', height: 'auto' }} />
+                        ) : (
+                            <CardMedia
+                                component="video"
+                                autoPlay={isssHovered}
+                                loop
+                                muted
+                                src={courseVid}
+                                controls={isssHovered}
+                                style={{ display: isssHovered ? 'block' : 'none', width: '100%' }}
+                            />
+                        )}
+                        <a href="https://github.com/divy1607/react-course-app" target="_blank">
+                            <h3 style={{ 
+                                textAlign: 'center', 
+                                fontFamily: 'Monaco, monospace',
+                                padding: '1rem',
+                                fontSize: 'clamp(0.9rem, 2vw, 1rem)'
+                            }}>source code</h3>
+                        </a>
                     </Card>
+
                     <Card
                         onMouseEnter={handdddleMouseEnter}
                         onMouseLeave={handdddleMouseLeave}
                         style={{
-                            width: 500, height: 375, marginBottom: 20, backgroundColor: "#FFE4C4"
+                            width: '100%',
+                            height: 'auto',
+                            marginBottom: '2rem',
+                            backgroundColor: '#FFE4C4'
                         }}>
                         <h1 style={{
-                            textAlign: "center",
-                            fontFamily: "Trebuchet MS, sans-serif"
+                            textAlign: 'center',
+                            fontFamily: 'Trebuchet MS, sans-serif',
+                            fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
+                            padding: '1rem 0'
                         }}>Calculator App *</h1>
-                        <img src={calcPic} alt="" style={{ width: 500, height: "auto" }} />
-                        <a href="https://github.com/divy1607/simple-calculator-app" target="_blank"> <h3 style={{ textAlign: "center", fontFamily: "Monaco, monospace" }}>source code</h3></a>
+                        <img src={calcPic} alt="Calculator" style={{ width: '100%', height: 'auto' }} />
+                        <a href="https://github.com/divy1607/simple-calculator-app" target="_blank">
+                            <h3 style={{ 
+                                textAlign: 'center', 
+                                fontFamily: 'Monaco, monospace',
+                                padding: '1rem',
+                                fontSize: 'clamp(0.9rem, 2vw, 1rem)'
+                            }}>source code</h3>
+                        </a>
                     </Card>
                 </div>
             </div>
-            <h6 style={{ fontFamily: "Courier, monospace", textAlign: "center" }}>*these projects were built on another OS so video demonstration is not possible, you can checkout the soruce code anyways :D</h6>
-            <br />
-            <h1 style={{
-                textAlign: "center",
-                fontSize: "3em",
-                fontFamily: "Verdana, sans-serif"
-            }}>Tech Stack</h1>
-            <div style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
+
+            <h6 style={{ 
+                fontFamily: 'Courier, monospace', 
+                textAlign: 'center',
+                fontSize: 'clamp(0.7rem, 1.5vw, 0.9rem)',
+                margin: '1rem 0'
             }}>
-                <div style={{ marginRight: 30 }}>
-                    <Badge color="secondary">
-                        <Mongo />
-                    </Badge>
-                </div>
-                <div style={{ marginRight: 30 }}>
-                    <Badge color="secondary">
-                        <Express />
-                    </Badge>
-                </div>
-                <div style={{ marginRight: 30 }}>
-                    <Badge color="secondary">
-                        <React />
-                    </Badge>
-                </div>
-                <div style={{ marginRight: 30 }}>
-                    <Badge color="secondary">
-                        <Node />
-                    </Badge>
-                </div>
-                <div style={{ marginRight: 30 }}>
-                    <Badge color="secondary">
-                        <Next />
-                    </Badge>
-                </div>
-                <div>
-                    <Badge color="secondary">
-                        <Recoil />
-                    </Badge>
-                </div>
-                <div>
-                    <Badge color="secondary">
-                        <Typescript />
-                    </Badge>
-                </div>
+                *these projects were built on another OS so video demonstration is not possible, you can checkout the source code anyways :D
+            </h6>
+
+            <h1 style={{
+                textAlign: 'center',
+                fontSize: 'clamp(2em, 5vw, 3em)',
+                fontFamily: 'Verdana, sans-serif',
+                margin: '2rem 0 1rem'
+            }}>Tech Stack</h1>
+
+            <div style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: '1.5rem',
+                padding: '1rem'
+            }}>
+                {[Mongo, Express, React, Node, Next, Recoil, Typescript].map((Component, index) => (
+                    <div key={index} style={{ flex: '0 1 auto' }}>
+                        <Badge color="secondary">
+                            <Component />
+                        </Badge>
+                    </div>
+                ))}
             </div>
         </div>
     )
 }
 
+// Tech stack components remain the same but with responsive sizing
 function Mongo() {
-    return <img src={mongoPic} alt="instagram" style={{
-        width: '50px', height: 'auto'
-    }} />
+    return <img src={mongoPic} alt="MongoDB" style={{ width: 'clamp(40px, 5vw, 50px)', height: 'auto' }} />
 }
 
 function Express() {
-    return <img src={expressPic} alt="instagram" style={{
-        width: '50px', height: 'auto'
-    }} />
+    return <img src={expressPic} alt="Express" style={{ width: 'clamp(40px, 5vw, 50px)', height: 'auto' }} />
 }
 
 function React() {
-    return <img src={reactPic} alt="instagram" style={{
-        width: '50px', height: 'auto'
-    }} />
+    return <img src={reactPic} alt="React" style={{ width: 'clamp(40px, 5vw, 50px)', height: 'auto' }} />
 }
 
 function Node() {
-    return <img src={nodePic} alt="instagram" style={{
-        width: '50px', height: 'auto'
-    }} />
+    return <img src={nodePic} alt="Node.js" style={{ width: 'clamp(40px, 5vw, 50px)', height: 'auto' }} />
 }
 
 function Next() {
-    return <img src={nextPic} alt="instagram" style={{
-        width: '50px', height: 'auto'
-    }} />
+    return <img src={nextPic} alt="Next.js" style={{ width: 'clamp(40px, 5vw, 50px)', height: 'auto' }} />
 }
 
 function Recoil() {
-    return <img src={recoilPic} alt="instagram" style={{
-        width: '50px', height: 'auto'
-    }} />
+    return <img src={recoilPic} alt="Recoil" style={{ width: 'clamp(40px, 5vw, 50px)', height: 'auto' }} />
 }
 
 function Typescript() {
-    return <img src={typePic} alt="instagram" style={{
-        width: '50px', height: 'auto'
-    }} />
+    return <img src={typePic} alt="TypeScript" style={{ width: 'clamp(40px, 5vw, 50px)', height: 'auto' }} />
 }
 
 export default Projects
