@@ -103,14 +103,28 @@ function App() {
           }),
     },
     typography: {
-      fontFamily: "'Lora', 'Playfair Display', serif",
+      fontFamily: "'Roboto', sans-serif", // Consistent modern font
       h1: {
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Roboto', sans-serif",
+        fontWeight: 700,
+      },
+      h2: {
+        fontFamily: "'Roboto', sans-serif",
         fontWeight: 600,
       },
-      button: {
-        fontFamily: "'Inter', sans-serif",
+      h3: {
+        fontFamily: "'Roboto', sans-serif",
         fontWeight: 500,
+      },
+      button: {
+        fontFamily: "'Roboto', sans-serif",
+        fontWeight: 500,
+      },
+      body1: {
+        fontFamily: "'Roboto', sans-serif",
+      },
+      body2: {
+        fontFamily: "'Roboto', sans-serif",
       },
     },
     components: {
@@ -180,13 +194,26 @@ function App() {
             style={{
               position: 'fixed',
               top: 15,
-              right: 15,
+              right: 60, // Adjusted to make space for toggle
               zIndex: 1100,
               color: theme.palette.text.primary
             }}
           >
             <MenuIcon />
           </Button>
+          {/* Added dark/light mode toggle for mobile */}
+          <IconButton 
+            onClick={colorMode.toggleColorMode}
+            style={{
+              position: 'fixed',
+              top: 10,
+              right: 10,
+              zIndex: 1100,
+              backgroundColor: mode === 'light' ? '#DBA39A20' : '#E8A9A920',
+            }}
+          >
+            {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
           <Drawer
             variant="temporary"
             anchor="right"
@@ -225,7 +252,7 @@ function App() {
                   <ListItemText 
                     primary={item.text}
                     primaryTypographyProps={{
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Roboto', sans-serif",
                       fontWeight: 500,
                     }}
                   />
@@ -270,7 +297,7 @@ function App() {
         <Grid item lg={6} md={6} sm={12}>
           <h1 style={{
             textAlign: "center",
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Roboto', sans-serif",
             fontSize: isMobile ? "2rem" : "2.8rem",
             fontWeight: 700,
             color: theme.palette.text.primary,
@@ -288,7 +315,7 @@ function App() {
             justifyContent: "flex-end",
             alignItems: "center",
             marginRight: 30,
-            gap: '15px'
+            gap: '30px' // Increased gap for more space between buttons
           }}>
             <IconButton 
               sx={{ 
@@ -306,7 +333,7 @@ function App() {
             <div style={{ 
               display: "flex", 
               alignItems: 'center', 
-              gap: '20px' 
+              gap: '30px' // Increased gap for more space between buttons
             }}>
               <Button
                 onClick={() => scrollToComponent(abRef)}
@@ -343,7 +370,6 @@ function App() {
     );
   };
 
-  // Define a single uniform gradient for all sections
   const uniformGradient = mode === 'light'
     ? 'linear-gradient(135deg, #FAF0E6 0%, #A8A2B9 70%, #DBA39A 100%)'
     : 'linear-gradient(135deg, #1F2526 0%, #8B95A1 70%, #E8A9A9 100%)';
@@ -358,13 +384,13 @@ function App() {
           margin: 0,
           padding: 0,
           overflowX: "hidden",
-          backgroundImage: uniformGradient, // Apply uniform gradient to entire app
-          backgroundAttachment: 'fixed', // Keeps gradient fixed while scrolling
+          backgroundImage: uniformGradient,
+          backgroundAttachment: 'fixed',
           color: theme.palette.text.primary,
         }}>
           <div style={{
             background: mode === 'light'
-              ? 'linear-gradient(180deg, #FFFFFF, #FAF0E6CC)' // Slightly transparent to blend with main gradient
+              ? 'linear-gradient(180deg, #FFFFFF, #FAF0E6CC)'
               : 'linear-gradient(180deg, #2A3032CC, #1F2526CC)',
             position: "fixed",
             width: "100%",
@@ -408,7 +434,7 @@ function App() {
           ))}
 
           <div style={{
-            backgroundImage: uniformGradient, // Same gradient for footer
+            backgroundImage: uniformGradient, // Consistent with main content
             padding: "60px 20px",
             color: theme.palette.text.primary,
             textAlign: isMobile ? "center" : "left",
