@@ -87,7 +87,7 @@ function Home() {
           }}
         >
           A tech head, exploring the realms of science and technology. <br />
-          Welcome to my portfolio! You'll see my self projects and educational background here. <br />
+          Welcome to my portfolio! You'll see my professional experience, self projects and educational background here. <br />
           Apart from that, I like working on simple solutions to complex problems. You will most probably find me sleeping, watching cool physics stuff online, watching American sitcoms, or programming. Can help you with designs, codes, and physics, or can recommend great shows and music.
         </Typography>
 

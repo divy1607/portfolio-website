@@ -62,13 +62,13 @@ function Education() {
           date="2017-18"
           dateClassName="date-style"
         >
-          <Typography variant="h3" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 600, textAlign: 'center', marginBottom: '0.5rem' }}>
+          <Typography variant="h4" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 600, textAlign: 'center', marginBottom: '0.5rem' }}>
             Senior Secondary Certificate
           </Typography>
-          <Typography variant="h4" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 500, textAlign: 'center', marginBottom: '0.5rem' }}>
+          <Typography variant="h5" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 500, textAlign: 'center', marginBottom: '0.5rem' }}>
             Central Board of Secondary Education
           </Typography>
-          <Typography variant="h5" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 400, textAlign: 'center' }}>
+          <Typography variant="h6" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 400, textAlign: 'center' }}>
             93.6%
           </Typography>
         </VerticalTimelineElement>
@@ -92,13 +92,13 @@ function Education() {
           date="2019-20"
           dateClassName="date-style"
         >
-          <Typography variant="h3" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 600, textAlign: 'center', marginBottom: '0.5rem' }}>
+          <Typography variant="h4" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 600, textAlign: 'center', marginBottom: '0.5rem' }}>
             Higher Secondary Certificate
           </Typography>
-          <Typography variant="h4" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 500, textAlign: 'center', marginBottom: '0.5rem' }}>
+          <Typography variant="h5" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 500, textAlign: 'center', marginBottom: '0.5rem' }}>
             Central Board of Secondary Education
           </Typography>
-          <Typography variant="h5" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 400, textAlign: 'center' }}>
+          <Typography variant="h6" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 400, textAlign: 'center' }}>
             92%
           </Typography>
         </VerticalTimelineElement>
@@ -122,13 +122,13 @@ function Education() {
           date="2021-present"
           dateClassName="date-style"
         >
-          <Typography variant="h3" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 600, textAlign: 'center', marginBottom: '0.5rem' }}>
+          <Typography variant="h4" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 600, textAlign: 'center', marginBottom: '0.5rem' }}>
             Bachelor of Technology
           </Typography>
-          <Typography variant="h4" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 500, textAlign: 'center', marginBottom: '0.5rem' }}>
+          <Typography variant="h5" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 500, textAlign: 'center', marginBottom: '0.5rem' }}>
             Engineering Physics
           </Typography>
-          <Typography variant="h5" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 400, textAlign: 'center' }}>
+          <Typography variant="h6" sx={{ fontFamily: "'Roboto', sans-serif", fontWeight: 400, textAlign: 'center' }}>
             Indian Institute of Technology, Bombay
           </Typography>
         </VerticalTimelineElement>

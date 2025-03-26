@@ -40,7 +40,7 @@ function Projects() {
             <h1 style={{
                 fontSize: 'clamp(2em, 5vw, 3em)',
                 textAlign: 'center',
-                fontFamily: 'Copperplate, Copperplate Gothic Light, fantasy',
+                fontFamily: "Roboto, sans-serif",
                 marginBottom: '2rem'
             }}>
                 MY PROJECTS

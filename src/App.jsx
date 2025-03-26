@@ -11,10 +11,12 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
 
 import Home from "./components/Home.jsx";
+import Experience from "./components/Experience.jsx";
 import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact.jsx";
-import Education from "./components/Education.jsx"
-import Footer from "./components/Footer.jsx"
+import Education from "./components/Education.jsx";
+import Footer from "./components/Footer.jsx";
+import ProgressBar from "./components/ProgressBar.jsx"; // Import the ProgressBar component
 
 import Button from "@mui/material/Button";
 import Grid from '@mui/material/Grid';
@@ -103,7 +105,7 @@ function App() {
           }),
     },
     typography: {
-      fontFamily: "'Roboto', sans-serif", // Consistent modern font
+      fontFamily: "'Roboto', sans-serif",
       h1: {
         fontFamily: "'Roboto', sans-serif",
         fontWeight: 700,
@@ -169,6 +171,7 @@ function App() {
   const suggRef = useRef(null);
   const abRef = useRef(null);
   const divRef = useRef(null);
+  const expRef = useRef(null);
   const homeRef = useRef(null);
 
   const currentTheme = useTheme();
@@ -193,20 +196,19 @@ function App() {
             onClick={handleDrawerToggle}
             style={{
               position: 'fixed',
-              top: 15,
-              right: 60, // Adjusted to make space for toggle
+              top: 27, // Adjusted for ProgressBar height (12px)
+              right: 60,
               zIndex: 1100,
               color: theme.palette.text.primary
             }}
           >
             <MenuIcon />
           </Button>
-          {/* Added dark/light mode toggle for mobile */}
           <IconButton 
             onClick={colorMode.toggleColorMode}
             style={{
               position: 'fixed',
-              top: 10,
+              top: 22, // Adjusted for ProgressBar height (12px)
               right: 10,
               zIndex: 1100,
               backgroundColor: mode === 'light' ? '#DBA39A20' : '#E8A9A920',
@@ -227,12 +229,14 @@ function App() {
                 boxSizing: 'border-box', 
                 width: 260,
                 padding: '20px',
+                marginTop: '12px', // Adjusted for ProgressBar height
               },
             }}
           >
             <List>
               {[
                 { text: 'Home', ref: homeRef },
+                { text: 'Experience', ref: expRef },
                 { text: 'Projects', ref: abRef },
                 { text: 'Education', ref: divRef },
                 { text: 'Contact', ref: suggRef }
@@ -265,8 +269,8 @@ function App() {
     }
 
     return (
-      <Grid container alignItems="center" justifyContent="space-between">
-        <Grid item lg={3} md={3} sm={12}>
+      <Grid container alignItems="center" justifyContent="space-between" sx={{ flexWrap: 'nowrap' }}>
+        <Grid item xs={2} sm={2} md={2} lg={2}>
           <div style={{ 
             marginLeft: 30, 
             display: 'flex', 
@@ -294,32 +298,32 @@ function App() {
             </Button>
           </div>
         </Grid>
-        <Grid item lg={6} md={6} sm={12}>
+        <Grid item xs={4} sm={4} md={4} lg={4}>
           <h1 style={{
             textAlign: "center",
             fontFamily: "'Roboto', sans-serif",
-            fontSize: isMobile ? "2rem" : "2.8rem",
+            fontSize: "2.8rem",
             fontWeight: 700,
             color: theme.palette.text.primary,
             letterSpacing: "2px",
-            textShadow: mode === 'light' 
+            textShadow: theme.palette.mode === 'light' 
               ? '2px 2px 4px rgba(47, 46, 65, 0.1)' 
               : '2px 2px 4px rgba(237, 237, 237, 0.1)',
+            marginLeft: 100,
           }}>
             THE WAY I AM
           </h1>
         </Grid>
-        <Grid item lg={3} md={3} sm={12}>
+        <Grid item xs={6} sm={6} md={6} lg={6}>
           <div style={{
             display: "flex", 
             justifyContent: "flex-end",
-            alignItems: "center",
-            marginRight: 30,
-            gap: '30px' // Increased gap for more space between buttons
+            alignItems: "center", // Changed to center for better alignment
+            flexWrap: 'nowrap',
           }}>
             <IconButton 
-              sx={{ 
-                ml: 1,
+              sx={{
+                mr: 2, 
                 backgroundColor: mode === 'light' ? '#DBA39A20' : '#E8A9A920',
                 '&:hover': {
                   backgroundColor: mode === 'light' ? '#DBA39A40' : '#E8A9A940',
@@ -333,32 +337,89 @@ function App() {
             <div style={{ 
               display: "flex", 
               alignItems: 'center', 
-              gap: '30px' // Increased gap for more space between buttons
+              gap: '15px',
+              flexWrap: 'nowrap',
             }}>
               <Button
+                onClick={() => scrollToComponent(expRef)}
+                variant="text"
+                sx={{
+                  color: theme.palette.text.primary,
+                  fontFamily: "'Roboto', sans-serif",
+                  fontWeight: 500,
+                  fontSize: '1rem',
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  background: theme.palette.mode === 'light' ? '#DBA39A20' : '#E8A9A920',
+                  transition: 'all 0.3s ease',
+                  whiteSpace: 'nowrap',
+                  '&:hover': {
+                    background: theme.palette.mode === 'light' ? '#DBA39A40' : '#E8A9A940',
+                    transform: 'scale(1.05)',
+                  },
+                }}
+              >
+                Experience
+              </Button>
+              <Button
                 onClick={() => scrollToComponent(abRef)}
-                variant="outlined"
-                color="secondary"
-                sx={{ borderWidth: 2 }}
+                variant="text"
+                sx={{
+                  color: theme.palette.text.primary,
+                  fontFamily: "'Roboto', sans-serif",
+                  fontWeight: 500,
+                  fontSize: '1rem',
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  background: theme.palette.mode === 'light' ? '#DBA39A20' : '#E8A9A920',
+                  transition: 'all 0.3s ease',
+                  whiteSpace: 'nowrap',
+                  '&:hover': {
+                    background: theme.palette.mode === 'light' ? '#DBA39A40' : '#E8A9A940',
+                    transform: 'scale(1.05)',
+                  },
+                }}
               >
                 Projects
               </Button>
               <Button
                 onClick={() => scrollToComponent(divRef)}
-                variant="outlined"
-                color="secondary"
-                sx={{ borderWidth: 2 }}
+                variant="text"
+                sx={{
+                  color: theme.palette.text.primary,
+                  fontFamily: "'Roboto', sans-serif",
+                  fontWeight: 500,
+                  fontSize: '1rem',
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  background: theme.palette.mode === 'light' ? '#DBA39A20' : '#E8A9A920',
+                  transition: 'all 0.3s ease',
+                  whiteSpace: 'nowrap',
+                  '&:hover': {
+                    background: theme.palette.mode === 'light' ? '#DBA39A40' : '#E8A9A940',
+                    transform: 'scale(1.05)',
+                  },
+                }}
               >
                 Education
               </Button>
               <Button
                 variant="contained"
                 onClick={() => scrollToComponent(suggRef)}
-                color="secondary"
                 sx={{
-                  background: mode === 'light'
+                  fontFamily: "'Roboto', sans-serif",
+                  fontWeight: 500,
+                  fontSize: '1rem',
+                  padding: '8px 24px',
+                  borderRadius: '20px',
+                  background: theme.palette.mode === 'light'
                     ? 'linear-gradient(45deg, #DBA39A, #A8A2B9)'
                     : 'linear-gradient(45deg, #E8A9A9, #8B95A1)',
+                  whiteSpace: 'nowrap',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                    boxShadow: '0 6px 25px rgba(0, 0, 0, 0.2)',
+                  },
                 }}
               >
                 Contact me
@@ -388,13 +449,16 @@ function App() {
           backgroundAttachment: 'fixed',
           color: theme.palette.text.primary,
         }}>
+          {/* Add the ProgressBar at the top */}
+          <ProgressBar />
+
           <div style={{
             background: mode === 'light'
               ? 'linear-gradient(180deg, #FFFFFF, #FAF0E6CC)'
               : 'linear-gradient(180deg, #2A3032CC, #1F2526CC)',
             position: "fixed",
             width: "100%",
-            top: 0,
+            top: 12, // Offset by the height of the ProgressBar (12px)
             left: 0,
             boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
             zIndex: 1000,
@@ -413,6 +477,7 @@ function App() {
 
           {[
             { ref: homeRef, component: <Home /> },
+            { ref: expRef, component: <Experience /> },
             { ref: abRef, component: <Projects /> },
             { ref: divRef, component: <Education /> },
             { ref: suggRef, component: <Contact /> }
@@ -425,7 +490,7 @@ function App() {
                 justifyContent: "center",
                 alignItems: "center",
                 minHeight: "100vh",
-                padding: isMobile ? "140px 20px 80px" : "100px 0 60px",
+                padding: isMobile ? "152px 20px 80px" : "112px 0 60px", // Adjusted padding to account for ProgressBar height (12px)
                 flexDirection: isMobile ? "column" : "row",
               }}
             >
@@ -434,7 +499,7 @@ function App() {
           ))}
 
           <div style={{
-            backgroundImage: uniformGradient, // Consistent with main content
+            backgroundImage: uniformGradient,
             padding: "60px 20px",
             color: theme.palette.text.primary,
             textAlign: isMobile ? "center" : "left",
@@ -445,7 +510,7 @@ function App() {
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
-  )
+  );
 }
 
-export default App
+export default App;

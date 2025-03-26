@@ -19,23 +19,36 @@ function ContactForm() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm('service_0eydyth', 'template_lnd2aoq', form.current, 'wtRwDST0ZepAbm-GZ')
-      .then(
-        (result) => {
-          console.log('SUCCESS!', result.text);
-          form.current.reset();
-          alert("Thank you for contacting me!");
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-          alert("Failed to send message. Please try again.");
-        }
-      )
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  };
+    const serviceID = 'default_service';
+    const templateID = 'template_lnd2aoq';
+ 
+    emailjs.sendForm(serviceID, templateID, this)
+     .then(() => {
+       btn.value = 'Send Email';
+       alert('Sent!');
+     }, (err) => {
+       btn.value = 'Send Email';
+       alert(JSON.stringify(err));
+     });
+ };
+
+  //   emailjs
+  //     .sendForm('service_0eydyth', 'template_lnd2aoq', form.current, 'wtRwDST0ZepAbm-GZ')
+  //     .then(
+  //       (result) => {
+  //         console.log('SUCCESS!', result.text);
+  //         form.current.reset();
+  //         alert("Thank you for contacting me!");
+  //       },
+  //       (error) => {
+  //         console.log('FAILED...', error.text);
+  //         alert("Failed to send message. Please try again.");
+  //       }
+  //     )
+  //     .catch((error) => {
+  //       console.error('Error:', error);
+  //     });
+  // };
 
   return (
     <Box
