@@ -1,5 +1,6 @@
 import { Card, CardMedia, Badge } from "@mui/material";
 import { useState } from "react";
+import { useTheme } from "@mui/material";
 import reactPic from "../assets/react.svg";
 import recoilPic from "../assets/recoil.png";
 import nodePic from "../assets/nodejs.png";
@@ -21,6 +22,7 @@ import tailwindPic from "../assets/tailwind.svg";
 
 function Projects() {
   const [hovered, setHovered] = useState(null);
+  const theme = useTheme();
 
   return (
     <div
@@ -42,7 +44,6 @@ function Projects() {
       >
         MY PROJECTS
       </h1>
-
       <div
         style={{
           display: "grid",
@@ -97,7 +98,9 @@ function Projects() {
             onMouseLeave={() => setHovered(null)}
             style={{
               width: "100%",
-              backgroundColor: "#FFE4C4",
+              backgroundColor:
+                theme.palette.mode === "dark" ? "#2c2c2c" : "#FFE4C4",
+              color: theme.palette.mode === "dark" ? "#fff" : "#000",
               textAlign: "center",
               padding: "10px",
             }}
@@ -142,18 +145,17 @@ function Projects() {
           </Card>
         ))}
       </div>
-
+      <br /> <br /> <br />
       <h1
         style={{
-          textAlign: "center",
           fontSize: "clamp(1.4em, 3.5vw, 2.1em)",
-          fontFamily: "Verdana, sans-serif",
-          margin: "1.4rem 0 0.7rem",
+          textAlign: "center",
+          fontFamily: "Roboto, sans-serif",
+          marginBottom: "1.4rem",
         }}
       >
-        Tech Stack
+        TECH STACK
       </h1>
-
       <div
         style={{
           display: "flex",
