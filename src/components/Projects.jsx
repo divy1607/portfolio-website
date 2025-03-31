@@ -1,6 +1,4 @@
 import { Card, CardMedia, Badge } from "@mui/material";
-import todoVid from "../assets/todo1.mp4";
-import courseVid from "../assets/coursera.mp4";
 import { useState } from "react";
 import reactPic from "../assets/react.svg";
 import recoilPic from "../assets/recoil.png";
@@ -8,10 +6,12 @@ import nodePic from "../assets/nodejs.png";
 import nextPic from "../assets/next.png";
 import expressPic from "../assets/express.png";
 import typePic from "../assets/typescript.png";
-import todoPic from "../assets/todo.png";
+import blogPic from "../assets/blog.png";
 import coursePic from "../assets/coursera.png";
+import payPic from "../assets/payapp.png";
 import ecomPic from "../assets/e commerce.png";
-import calcPic from "../assets/calculator.jpeg";
+import pathPic from "../assets/pathfinder.png";
+import calconPic from "../assets/calcon.png";
 import postgrePic from "../assets/postgre.png";
 import jsPic from "../assets/js.png";
 import prismaPic from "../assets/prisma.png";
@@ -53,26 +53,42 @@ function Projects() {
       >
         {[
           {
-            title: "Todo Application",
-            img: todoPic,
-            vid: todoVid,
-            link: "https://github.com/divy1607/react-todo-app",
+            title: "Path Finder",
+            img: pathPic,
+            description: "Web Visualizer for DFS, BFS and Djikstra algorithm",
+            link: "https://github.com/divy1607/path-finder",
           },
           {
-            title: "E Commerce Dashboard *",
+            title: "Acme",
             img: ecomPic,
+            description: "Admin Dashboard of an E Commerce business owner",
             link: "https://github.com/divy1607/next",
           },
           {
-            title: "Course Selling Application",
+            title: "CourseX",
             img: coursePic,
-            vid: courseVid,
+            description: "Working prototype of a course selling application",
             link: "https://github.com/divy1607/react-course-app",
           },
           {
-            title: "Calculator App *",
-            img: calcPic,
-            link: "https://github.com/divy1607/simple-calculator-app",
+            title: "CalCon",
+            img: calconPic,
+            description:
+              "Calculator (Scientific + Arithmetic) and Converter (unit + currency)",
+            link: "https://github.com/divy1607/calcon",
+          },
+          {
+            title: "PayApp",
+            img: payPic,
+            description:
+              "Web App for PoC of a payment sending application via username",
+            link: "https://github.com/divy1607/money-sending",
+          },
+          {
+            title: "BlogX",
+            img: blogPic,
+            description: "Personal Bloggin website with analysis dashboard",
+            link: "https://github.com/divy1607/blog",
           },
         ].map((project, index) => (
           <Card
@@ -111,6 +127,7 @@ function Projects() {
                 style={{ width: "100%", height: "auto" }}
               />
             )}
+            <h6>{project.description}</h6>
             <a href={project.link} target="_blank" rel="noopener noreferrer">
               <h3
                 style={{
@@ -125,18 +142,6 @@ function Projects() {
           </Card>
         ))}
       </div>
-
-      <h6
-        style={{
-          fontFamily: "Courier, monospace",
-          textAlign: "center",
-          fontSize: "clamp(0.49rem, 1.05vw, 0.63rem)",
-          margin: "0.7rem 0",
-        }}
-      >
-        *these projects were built on another OS so video demonstration is not
-        possible, you can checkout the source code anyways :D
-      </h6>
 
       <h1
         style={{
