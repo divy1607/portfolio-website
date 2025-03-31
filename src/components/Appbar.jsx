@@ -1,72 +1,54 @@
 import Button from "@mui/material/Button";
-import Grid from '@mui/material/Grid';
-import { Avatar } from '@mui/material';
-import divyPhoto from '../assets/c977b6ac-e9c2-40f6-835c-1ce07dc571ac.jpg';
-import divy2Pic from '../assets/divy2.png';
-
+import Grid from "@mui/material/Grid";
+import { Avatar } from "@mui/material";
+import divy2Pic from "../assets/divy2.png";
 
 function Appbar() {
-
-
-    return <div style={{
-
-        zIndex: 1
-    }}>
-        <Grid container>
-            <Grid item lg={4} md={4} sm={12}>
-
-                <div style={{ marginLeft: 10 }} >
-                    <Button
-                       
-                        variant={"text"}
-                    > <Avatar alt="Divy"
-                        src={divy2Pic}
-                        sx={{ width: 56, height: 56 }} /> </Button>
-                </div>
-
-            </Grid>
-
-            <Grid item lg={4} md={4} sm={12}>
-                <div style={{
-                    display: "flex",
-                    justifyContent: "center"
-                }}>
-                    <h2>
-                        THE WAY I AM
-                    </h2>
-                </div>
-            </Grid>
-
-            <Grid item lg={4} md={4} sm={12}>
-                <div style={{
-                    display: "flex",
-                    justifyContent: "right",
-                }}>
-                    <div style={{ justifyContent: "right", marginRight: 10, display: "flex" }}>
-                        <div style={{ marginRight: 10 }}>
-                            <Button
-                                
-                                variant={"text"}
-
-                            > <h4>Home</h4></Button>
-                        </div>
-
-                        <div style={{ marginRight: 10 }}>
-                            <Button
-                               
-                                variant={"text"}
-                            > <h4>About</h4></Button>
-                        </div>
-
-                        <Button
-                            variant={"text"}
-
-                        > <h4>Suggestion</h4></Button>
-                    </div>
-                </div>
-            </Grid>
+  return (
+    <div style={{ zIndex: 1 }}>
+      <Grid container>
+        <Grid item lg={4} md={4} sm={12}>
+          <div style={{ marginLeft: 7 }}>
+            <Button variant="text">
+              <Avatar
+                alt="Divy"
+                src={divy2Pic}
+                sx={{ width: 39, height: 39 }}
+              />
+            </Button>
+          </div>
         </Grid>
+
+        <Grid item lg={4} md={4} sm={12}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <h3 style={{ fontSize: "1.4rem" }}>THE WAY I AM</h3>
+          </div>
+        </Grid>
+
+        <Grid item lg={4} md={4} sm={12}>
+          <div style={{ display: "flex", justifyContent: "right" }}>
+            <div style={{ marginRight: 7, display: "flex" }}>
+              <Button variant="text" style={{ fontSize: "0.9rem" }}>
+                Home
+              </Button>
+              <Button
+                variant="text"
+                style={{ fontSize: "0.9rem", marginLeft: 5 }}
+              >
+                About
+              </Button>
+              <Button
+                variant="text"
+                style={{ fontSize: "0.9rem", marginLeft: 5 }}
+              >
+                Suggestion
+              </Button>
+            </div>
+          </div>
+        </Grid>
+      </Grid>
     </div>
+  );
 }
 
 export default Appbar;
