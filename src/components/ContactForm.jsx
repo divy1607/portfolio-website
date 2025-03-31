@@ -74,6 +74,20 @@ export const ContactForm = () => {
         LET'S TALK
       </Typography>
 
+      <Typography
+        variant="h5"
+        sx={{
+          fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.3rem", lg: "1.5rem" },
+          fontFamily: "'Roboto', sans-serif",
+          fontWeight: 400,
+          color: theme.palette.text.secondary,
+          textAlign: "center",
+          marginBottom: "1rem",
+        }}
+      >
+        Drop me a message
+      </Typography>
+
       <Box
         component="form"
         onSubmit={sendEmail}
@@ -88,6 +102,7 @@ export const ContactForm = () => {
           label="Name"
           name="name"
           value={name}
+          required
           onChange={(e) => setName(e.target.value)}
           error={!!errors.name}
           helperText={errors.name}
@@ -98,6 +113,7 @@ export const ContactForm = () => {
           label="Email"
           name="email"
           type="email"
+          required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           error={!!errors.email}
@@ -110,6 +126,7 @@ export const ContactForm = () => {
           name="message"
           multiline
           rows={4}
+          required
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           error={!!errors.message}
