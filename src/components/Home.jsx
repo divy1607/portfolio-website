@@ -10,49 +10,46 @@ function Home() {
     <Box
       sx={{
         display: "flex",
-        flexDirection: { xs: "column", md: "row" }, // Stack on mobile, row on desktop
+        flexDirection: { xs: "column", md: "row" },
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        maxWidth: "1200px",
+        maxWidth: "840px",
         margin: "0 auto",
-        padding: { xs: "20px", md: "40px" },
-        gap: { xs: "2rem", md: "4rem" }, // Responsive gap between text and image
+        padding: { xs: "14px", md: "28px" },
+        gap: { xs: "1.4rem", md: "2.8rem" },
         boxSizing: "border-box",
       }}
     >
-      {/* Image Section */}
-
       <Box
         sx={{
           flex: 1,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          padding: "20px",
-          minWidth: 0, // Prevents overflow
+          padding: "14px",
+          minWidth: 0,
         }}
       >
         <img
           src={divy2Pic}
           alt="Divyansh"
           style={{
-            width: "75%",
-            height: "10%",
-            maxWidth: { xs: "200px", sm: "250px", md: "300px" }, // Responsive image size
+            width: "52.5%",
+            height: "7%",
+            maxWidth: { xs: "140px", sm: "175px", md: "210px" },
             height: "auto",
             borderRadius: "50%",
-            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
-            transition: "box-shadow 0.3s ease, transform 0.3s ease",
+            boxShadow: "0 2.8px 14px rgba(0, 0, 0, 0.2)",
+            transition: "box-shadow 0.21s ease, transform 0.21s ease",
             "&:hover": {
-              boxShadow: "0 6px 25px rgba(0, 0, 0, 0.3)",
-              transform: "scale(1.05)",
+              boxShadow: "0 4.2px 17.5px rgba(0, 0, 0, 0.3)",
+              transform: "scale(1.035)",
             },
           }}
         />
       </Box>
 
-      {/* Text Section */}
       <Box
         sx={{
           flex: 1,
@@ -60,14 +57,14 @@ function Home() {
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
-          minWidth: 0, // Prevents overflow
+          minWidth: 0,
           width: { xs: "100%", md: "auto" },
         }}
       >
         <Typography
           variant="h1"
           sx={{
-            fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem" }, // Responsive font size
+            fontSize: { xs: "1.75rem", sm: "2.1rem", md: "2.8rem" },
             fontFamily: "'Roboto', sans-serif",
             fontWeight: 700,
             color: "text.primary",
@@ -80,12 +77,12 @@ function Home() {
         <Typography
           variant="h2"
           sx={{
-            fontSize: { xs: "1.2rem", sm: "1.5rem", md: "1.8rem" },
+            fontSize: { xs: "0.84rem", sm: "1.05rem", md: "1.26rem" },
             fontFamily: "'Roboto', sans-serif",
             fontWeight: 500,
             color: "#00ffee",
-            minHeight: "2em", // Ensures consistent height for typewriter
-            marginTop: "1rem",
+            minHeight: "1.4em",
+            marginTop: "0.7rem",
           }}
         >
           <Typewriter
@@ -93,13 +90,13 @@ function Home() {
             onInit={(typewriter) => {
               typewriter
                 .typeString("A dreamer")
-                .pauseFor(1000)
+                .pauseFor(700)
                 .deleteAll()
                 .typeString("A developer")
-                .pauseFor(1000)
+                .pauseFor(700)
                 .deleteAll()
                 .typeString("Entrepreneurship Enthusiast")
-                .pauseFor(1000)
+                .pauseFor(700)
                 .deleteAll()
                 .typeString("A batman :P")
                 .start();
@@ -110,12 +107,12 @@ function Home() {
         <Typography
           variant="body1"
           sx={{
-            fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+            fontSize: { xs: "0.7rem", sm: "0.77rem", md: "0.84rem" },
             fontFamily: "'Roboto', sans-serif",
             fontWeight: 400,
             color: "text.secondary",
-            marginTop: "1.5rem",
-            maxWidth: "600px",
+            marginTop: "1.05rem",
+            maxWidth: "420px",
           }}
         >
           A tech head, exploring the realms of science and technology. <br />
@@ -131,11 +128,11 @@ function Home() {
         <Typography
           variant="body2"
           sx={{
-            fontSize: { xs: "0.9rem", sm: "1rem" },
+            fontSize: { xs: "0.63rem", sm: "0.7rem" },
             fontFamily: "'Roboto', sans-serif",
             fontStyle: "italic",
             color: "text.secondary",
-            marginTop: "0.5rem",
+            marginTop: "0.35rem",
           }}
         >
           (PS: I think my taste in music is great! :p)
@@ -145,14 +142,14 @@ function Home() {
           sx={{
             display: "flex",
             alignItems: "center",
-            gap: "0.5rem",
-            marginTop: "1.5rem",
+            gap: "0.35rem",
+            marginTop: "1.05rem",
           }}
         >
           <Typography
             variant="h6"
             sx={{
-              fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.3rem" },
+              fontSize: { xs: "0.77rem", sm: "0.84rem", md: "0.91rem" },
               fontFamily: "'Roboto', sans-serif",
               fontWeight: 500,
               color: "text.primary",
@@ -180,7 +177,7 @@ function LinkedIn() {
         src={linkedPic}
         alt="LinkedIn"
         style={{
-          width: { xs: "25px", sm: "30px" }, // Responsive icon size
+          width: { xs: "17.5px", sm: "21px" },
           height: "auto",
         }}
       />
