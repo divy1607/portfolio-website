@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import Grid from '@mui/material/Grid';
 import { Avatar } from '@mui/material';
 import divyPhoto from '../assets/c977b6ac-e9c2-40f6-835c-1ce07dc571ac.jpg';
+import divy2Pic from '../assets/divy2.png';
 
 
 function Appbar() {
@@ -19,7 +20,7 @@ function Appbar() {
                        
                         variant={"text"}
                     > <Avatar alt="Divy"
-                        src={divyPhoto}
+                        src={divy2Pic}
                         sx={{ width: 56, height: 56 }} /> </Button>
                 </div>
 

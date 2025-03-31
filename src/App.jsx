@@ -27,6 +27,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import jokerPic from './assets/joker.jpg';
+import divy1Pic from './assets/divy1.jpg';
 
 export const ColorModeContext = React.createContext({ 
   toggleColorMode: () => {} 
@@ -283,7 +284,7 @@ function App() {
             >
               <Avatar 
                 alt="Divy"
-                src={jokerPic}
+                src={divy1Pic}
                 sx={{ 
                   width: 70, 
                   height: 70, 
