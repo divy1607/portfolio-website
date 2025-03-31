@@ -1,7 +1,6 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import { Box, Typography, Badge } from "@mui/material";
-import divyPhoto from "../assets/c977b6ac-e9c2-40f6-835c-1ce07dc571ac.jpg";
 import divy2Pic from "../assets/divy2.png";
 import linkedPic from "../assets/icons8-linkedin-50.png";
 

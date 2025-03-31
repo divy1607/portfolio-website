@@ -7,12 +7,11 @@ import "react-vertical-timeline-component/style.min.css";
 import { Box, Typography, useTheme } from "@mui/material";
 
 function Education() {
-  const theme = useTheme(); // Access the theme for consistent colors
+  const theme = useTheme();
 
-  // Define colors based on the theme mode (light/dark)
   const contentBackground =
-    theme.palette.mode === "light" ? "#F0C4B8" : "#4A5052"; // Soft peach / Dark charcoal variant
-  const iconBackground = theme.palette.primary.main; // #5C5470 (light) or #A69CAC (dark)
+    theme.palette.mode === "light" ? "#F0C4B8" : "#4A5052";
+  const iconBackground = theme.palette.primary.main;
   const textColor = theme.palette.text.primary;
 
   return (
