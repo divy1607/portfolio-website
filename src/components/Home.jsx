@@ -1,187 +1,102 @@
-import React from "react";
 import Typewriter from "typewriter-effect";
-import { Box, Typography, Badge } from "@mui/material";
-import divy2Pic from "../assets/divy2.png";
-import linkedPic from "../assets/icons8-linkedin-50.png";
+import { ArrowDownRight, ArrowUpRight, ArrowDown, Sparkles } from "lucide-react";
+import portrait from "../assets/portrait.jpg";
+import { socialLinks } from "../data/portfolio";
 
-function Home() {
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        maxWidth: "840px",
-        margin: "0 auto",
-        padding: { xs: "14px", md: "28px" },
-        gap: { xs: "1.4rem", md: "2.8rem" },
-        boxSizing: "border-box",
-      }}
-    >
-      <Box
-        sx={{
-          flex: 1,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "14px",
-          minWidth: 0,
-        }}
-      >
-        <img
-          src={divy2Pic}
-          alt="Divyansh"
-          style={{
-            width: "52.5%",
-            height: "7%",
-            maxWidth: { xs: "140px", sm: "175px", md: "210px" },
-            height: "auto",
-            borderRadius: "50%",
-            boxShadow: "0 2.8px 14px rgba(0, 0, 0, 0.2)",
-            transition: "box-shadow 0.21s ease, transform 0.21s ease",
-            "&:hover": {
-              boxShadow: "0 4.2px 17.5px rgba(0, 0, 0, 0.3)",
-              transform: "scale(1.035)",
-            },
-          }}
-        />
-      </Box>
+export default function Home() {
+    return (
+        <section className="hero section-shell" id="home" aria-labelledby="hero-title">
+            <div className="hero-grid">
+                <div className="hero-copy">
+                    <div className="hero-eyebrow hero-enter">
+                        <span className="availability-dot" />
+                        <p className="eyebrow">Hello, I’m Divyansh Tripathi.</p>
+                    </div>
+                    <h1 id="hero-title" className="hero-title hero-enter delay-1">
+                        I turn ideas into<br />
+                        <em>experiences.</em>
+                    </h1>
+                    <div className="hero-type hero-enter delay-2" aria-hidden="true">
+                        <span className="type-star">✳</span>
+                        <Typewriter
+                            options={{
+                                strings: [
+                                    "A developer.",
+                                    "A dreamer.",
+                                    "Entrepreneurship enthusiast.",
+                                    "A Batman. :P",
+                                ],
+                                autoStart: true,
+                                loop: true,
+                                delay: 60,
+                                deleteSpeed: 28,
+                                pauseFor: 1600,
+                            }}
+                        />
+                    </div>
+                    <p className="hero-description hero-enter delay-3">
+                        The internet runs on ideas. I code them into existence—building
+                        thoughtful products for the web, and everything in between.
+                    </p>
+                    <div className="hero-actions hero-enter delay-4">
+                        <a className="button button-primary" href="#experience">
+                            Explore my experience <ArrowDownRight size={18} />
+                        </a>
+                        <a className="text-link" href="#contact">
+                            Let’s talk <ArrowUpRight size={16} />
+                        </a>
+                    </div>
+                    <div className="hero-social hero-enter delay-5">
+                        {socialLinks.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {link.name === "X / Twitter" ? "X" : link.name}
+                            </a>
+                        ))}
+                    </div>
+                </div>
 
-      <Box
-        sx={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          minWidth: 0,
-          width: { xs: "100%", md: "auto" },
-        }}
-      >
-        <Typography
-          variant="h1"
-          sx={{
-            fontSize: { xs: "1.75rem", sm: "2.1rem", md: "2.8rem" },
-            fontFamily: "'Roboto', sans-serif",
-            fontWeight: 700,
-            color: "text.primary",
-            lineHeight: 1.2,
-          }}
-        >
-          Hi, I'm <span style={{ color: "#e5b59e" }}>Divyansh</span>
-        </Typography>
+                <div className="portrait-column">
+                    <div className="portrait-orbit" aria-hidden="true" />
+                    <div className="portrait-blob" aria-hidden="true" />
+                    <div className="portrait-wrap">
+                        <div className="portrait-outline" aria-hidden="true" />
+                        <div className="portrait-image-wrap">
+                            <img
+                                src={portrait}
+                                alt="Divyansh Tripathi"
+                                className="portrait-image"
+                                width="667"
+                                height="1000"
+                                fetchPriority="high"
+                            />
+                        </div>
+                    </div>
+                    <div className="portrait-badge">
+                        <Sparkles size={16} />
+                        <span>Curious by nature.<br />Builder by choice.</span>
+                    </div>
+                    <div className="portrait-caption" aria-hidden="true">
+                        <span className="handwritten">Let’s make<br />an impact.</span>
+                        <svg viewBox="0 0 70 60" fill="none">
+                            <path d="M4 5C22 2 40 9 48 23C56 37 48 46 38 43C27 40 29 23 42 25C54 27 59 41 59 55M59 55L50 48M59 55L65 45" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
 
-        <Typography
-          variant="h2"
-          sx={{
-            fontSize: { xs: "0.84rem", sm: "1.05rem", md: "1.26rem" },
-            fontFamily: "'Roboto', sans-serif",
-            fontWeight: 500,
-            color: "#00ffee",
-            minHeight: "1.4em",
-            marginTop: "0.7rem",
-          }}
-        >
-          <Typewriter
-            options={{ loop: true }}
-            onInit={(typewriter) => {
-              typewriter
-                .typeString("A dreamer")
-                .pauseFor(700)
-                .deleteAll()
-                .typeString("A developer")
-                .pauseFor(700)
-                .deleteAll()
-                .typeString("Entrepreneurship Enthusiast")
-                .pauseFor(700)
-                .deleteAll()
-                .typeString("A batman :P")
-                .start();
-            }}
-          />
-        </Typography>
-
-        <Typography
-          variant="body1"
-          sx={{
-            fontSize: { xs: "0.7rem", sm: "0.77rem", md: "0.84rem" },
-            fontFamily: "'Roboto', sans-serif",
-            fontWeight: 400,
-            color: "text.secondary",
-            marginTop: "1.05rem",
-            maxWidth: "420px",
-          }}
-        >
-          A tech head, exploring the realms of science and technology. <br />
-          Welcome to my portfolio! You'll see my professional experience, self
-          projects and educational background here. <br />
-          Apart from that, I like working on simple solutions to complex
-          problems. You will most probably find me sleeping, watching cool
-          physics stuff online, watching American sitcoms, or programming. Can
-          help you with designs, codes, and physics, or can recommend great
-          shows and music.
-        </Typography>
-
-        <Typography
-          variant="body2"
-          sx={{
-            fontSize: { xs: "0.63rem", sm: "0.7rem" },
-            fontFamily: "'Roboto', sans-serif",
-            fontStyle: "italic",
-            color: "text.secondary",
-            marginTop: "0.35rem",
-          }}
-        >
-          (PS: I think my taste in music is great! :p)
-        </Typography>
-
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.35rem",
-            marginTop: "1.05rem",
-          }}
-        >
-          <Typography
-            variant="h6"
-            sx={{
-              fontSize: { xs: "0.77rem", sm: "0.84rem", md: "0.91rem" },
-              fontFamily: "'Roboto', sans-serif",
-              fontWeight: 500,
-              color: "text.primary",
-            }}
-          >
-            Let's connect
-          </Typography>
-          <Badge color="secondary">
-            <LinkedIn />
-          </Badge>
-        </Box>
-      </Box>
-    </Box>
-  );
+            <div className="hero-bottom hero-enter delay-5">
+                <a className="scroll-hint" href="#experience">
+                    <ArrowDown size={15} />
+                    <span>Scroll to explore</span>
+                </a>
+                <p>Good ideas deserve great execution.</p>
+                <span className="hero-location">Based in India <span>↗</span></span>
+            </div>
+        </section>
+    );
 }
-
-function LinkedIn() {
-  return (
-    <a
-      href="https://www.linkedin.com/in/divyansh-tripathi-7a1141242/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img
-        src={linkedPic}
-        alt="LinkedIn"
-        style={{
-          width: { xs: "17.5px", sm: "21px" },
-          height: "auto",
-        }}
-      />
-    </a>
-  );
-}
-
-export default Home;

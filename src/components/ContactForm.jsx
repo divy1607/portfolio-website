@@ -1,164 +1,144 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Box, Typography, TextField, Button, useTheme } from "@mui/material";
+import { ArrowUpRight, LoaderCircle, Mail, CheckCircle2, CircleAlert } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 
-export const ContactForm = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [errors, setErrors] = useState({});
-  const theme = useTheme();
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const validate = () => {
-    let tempErrors = {};
-    if (!name) tempErrors.name = "Name is required";
-    if (!email) tempErrors.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      tempErrors.email = "Invalid email format";
-    if (!message) tempErrors.message = "Message is required";
-    setErrors(tempErrors);
-    return Object.keys(tempErrors).length === 0;
-  };
+export default function ContactForm() {
+    const [form, setForm] = useState({ name: "", email: "", message: "" });
+    const [status, setStatus] = useState({ type: "idle", message: "" });
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    if (!validate()) return;
+    const updateField = (event) => {
+        setForm((previous) => ({ ...previous, [event.target.name]: event.target.value }));
+        if (status.type === "error") setStatus({ type: "idle", message: "" });
+    };
 
-    emailjs
-      .send(
-        "service_jxxtqaa",
-        "template_lwf93gc",
-        { name, email, message },
-        "wtRwDST0ZepAbm-GZ"
-      )
-      .then(
-        () => {
-          setName("");
-          setEmail("");
-          setMessage("");
-          setErrors({});
-          alert("Thank you for contacting, I will reach you out soon");
-        },
-        () => {
-          alert("Could not send the message");
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        if (!form.name.trim() || !form.message.trim()) {
+            setStatus({ type: "error", message: "Please add your name and a message." });
+            return;
         }
-      );
-  };
+        if (!EMAIL_PATTERN.test(form.email.trim())) {
+            setStatus({ type: "error", message: "Please enter a valid email address." });
+            return;
+        }
 
-  return (
-    <Box
-      sx={{
-        width: "100%",
-        maxWidth: "800px",
-        margin: "0 auto",
-        padding: "30px",
-        backgroundColor:
-          theme.palette.mode === "light" ? "#FFFFFFCC" : "#2A3032CC",
-        borderRadius: "20px",
-        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
-        backdropFilter: "blur(5px)",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "1.5rem",
-      }}
-    >
-      <Typography
-        variant="h4"
-        sx={{
-          fontWeight: 700,
-          color: theme.palette.text.primary,
-          textAlign: "center",
-        }}
-      >
-        LET'S TALK
-      </Typography>
+        setStatus({ type: "loading", message: "Sending your message…" });
+        try {
+            await emailjs.send(
+                "service_jxxtqaa",
+                "template_lwf93gc",
+                {
+                    name: form.name.trim(),
+                    email: form.email.trim(),
+                    message: form.message.trim(),
+                },
+                "wtRwDST0ZepAbm-GZ",
+            );
+            setForm({ name: "", email: "", message: "" });
+            setStatus({
+                type: "success",
+                message: "Message sent! Thanks for reaching out. I’ll get back to you soon.",
+            });
+        } catch {
+            setStatus({
+                type: "error",
+                message: "That didn’t go through. Please try again, or email me directly.",
+            });
+        }
+    };
 
-      <Typography
-        variant="h5"
-        sx={{
-          fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.3rem", lg: "1.5rem" },
-          fontFamily: "'Roboto', sans-serif",
-          fontWeight: 400,
-          color: theme.palette.text.secondary,
-          textAlign: "center",
-          marginBottom: "1rem",
-        }}
-      >
-        Drop me a message
-      </Typography>
+    return (
+        <section className="contact-section section-space" id="contact" aria-labelledby="contact-title">
+            <div className="section-shell contact-grid">
+                <Reveal className="contact-copy">
+                    <SectionHeading
+                        eyebrow="Get in touch"
+                        title={<span id="contact-title">Have an idea?<br /><em>Let’s make it real.</em></span>}
+                        description="Whether it’s an ambitious project, an interesting opportunity, or just a conversation about tech—I’m all ears."
+                    />
+                    <div className="contact-email">
+                        <span className="contact-email-icon"><Mail size={20} /></span>
+                        <span className="contact-direct-label">Email me <a href="mailto:tripathidivy5647@gmail.com">DIRECTLY</a></span>
+                        <ArrowUpRight size={17} aria-hidden="true" />
+                    </div>
+                    <div className="contact-note">
+                        <span className="availability-dot" />
+                        Usually replies in a day or two
+                    </div>
+                </Reveal>
 
-      <Box
-        component="form"
-        onSubmit={sendEmail}
-        sx={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-        }}
-      >
-        <TextField
-          label="Name"
-          name="name"
-          value={name}
-          required
-          onChange={(e) => setName(e.target.value)}
-          error={!!errors.name}
-          helperText={errors.name}
-          fullWidth
-          variant="outlined"
-        />
-        <TextField
-          label="Email"
-          name="email"
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          error={!!errors.email}
-          helperText={errors.email}
-          fullWidth
-          variant="outlined"
-        />
-        <TextField
-          label="Message"
-          name="message"
-          multiline
-          rows={4}
-          required
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          error={!!errors.message}
-          helperText={errors.message}
-          fullWidth
-          variant="outlined"
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          sx={{
-            alignSelf: "center",
-            padding: "10px 40px",
-            borderRadius: "30px",
-            background:
-              theme.palette.mode === "light"
-                ? "linear-gradient(45deg, #DBA39A, #A8A2B9)"
-                : "linear-gradient(45deg, #E8A9A9, #8B95A1)",
-            fontWeight: 500,
-            textTransform: "uppercase",
-            letterSpacing: "1px",
-            "&:hover": {
-              transform: "scale(1.05)",
-              boxShadow: "0 6px 25px rgba(0, 0, 0, 0.2)",
-            },
-          }}
-        >
-          Send
-        </Button>
-      </Box>
-    </Box>
-  );
-};
-
-export default ContactForm;
+                <Reveal className="contact-form-reveal" delay={120}>
+                    <form className="contact-form" onSubmit={handleSubmit} noValidate>
+                        <div className="form-heading">
+                            <span className="eyebrow">Drop me a note</span>
+                            <svg viewBox="0 0 70 40" className="form-arrow" aria-hidden="true">
+                                <path d="M3 20C23 7 50 9 59 20M59 20L51 13M59 20L52 28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                            </svg>
+                        </div>
+                        <div className="form-field">
+                            <label htmlFor="contact-name">Your name</label>
+                            <input
+                                id="contact-name"
+                                name="name"
+                                type="text"
+                                placeholder="What should I call you?"
+                                value={form.name}
+                                onChange={updateField}
+                                autoComplete="name"
+                                required
+                            />
+                        </div>
+                        <div className="form-field">
+                            <label htmlFor="contact-email">Email address</label>
+                            <input
+                                id="contact-email"
+                                name="email"
+                                type="email"
+                                placeholder="you@example.com"
+                                value={form.email}
+                                onChange={updateField}
+                                autoComplete="email"
+                                required
+                            />
+                        </div>
+                        <div className="form-field">
+                            <label htmlFor="contact-message">Your message</label>
+                            <textarea
+                                id="contact-message"
+                                name="message"
+                                rows="4"
+                                placeholder="Tell me what’s on your mind…"
+                                value={form.message}
+                                onChange={updateField}
+                                required
+                            />
+                        </div>
+                        <button
+                            className="button button-primary submit-button"
+                            type="submit"
+                            disabled={status.type === "loading"}
+                        >
+                            {status.type === "loading" ? "Sending…" : "Send message"}
+                            {status.type === "loading"
+                                ? <LoaderCircle className="spin" size={18} />
+                                : <ArrowUpRight size={18} />}
+                        </button>
+                        <div className="form-status" role="status" aria-live="polite">
+                            {status.message && status.type !== "loading" && (
+                                <p className={`status-${status.type}`}>
+                                    {status.type === "success" ? <CheckCircle2 size={17} /> : <CircleAlert size={17} />}
+                                    {status.message}
+                                </p>
+                            )}
+                        </div>
+                    </form>
+                    <div className="form-grain" aria-hidden="true" />
+                </Reveal>
+            </div>
+        </section>
+    );
+}
